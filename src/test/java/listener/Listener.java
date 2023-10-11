@@ -16,7 +16,7 @@ public class Listener implements ITestListener {
     }
 
     public void onTestFailure(ITestResult result) {
-        System.out.println("Failed at test "+result.getTestName()+"because the following error"+ result.getThrowable());
+        System.out.println("Failed at test " + result.getTestName() + "because the following error" + result.getThrowable());
     }
 
     public void onTestSkipped(ITestResult result) {

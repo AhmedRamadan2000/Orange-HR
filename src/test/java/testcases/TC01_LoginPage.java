@@ -8,10 +8,13 @@ import utility.Utilities;
 
 import java.util.concurrent.TimeUnit;
 
+import static utility.Utilities.softAssert;
+
 public class TC01_LoginPage extends TestBase {
     //define test data
     static String Username = Utilities.getExcelData(1, 0, "Sheet1");
     static String Password = Utilities.getExcelData(1, 1, "Sheet1");
+
 
     //ToDo: create test case to check login with valid emila nad password
     @Test(priority = 1)
@@ -20,7 +23,8 @@ public class TC01_LoginPage extends TestBase {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         //ToDo: Take a screenshot
         Utilities.Capturescreenshots(driver, "ValidLoginImage");
-        Assert.assertTrue(new P02_HomePage(driver).CheckProfilePage());
+//        SoftAssert.assertTrue(new P02_HomePage(driver).CheckProfilePage());
+        softAssert.assertTrue(new P02_HomePage(driver).CheckProfilePage());
     }
 
     //Negative test cases

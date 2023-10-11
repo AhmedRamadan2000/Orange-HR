@@ -13,16 +13,6 @@ public class NumberGenerator {
         random = new Random();
     }
 
-    public int generateUniqueRandomNumber(int maxValue) {
-        int randomNumber;
-        do {
-            randomNumber = random.nextInt(maxValue) + 1;
-        } while (generatedNumbers.contains(randomNumber));
-
-        generatedNumbers.add(randomNumber);
-        return randomNumber;
-    }
-
     public static void main(String[] args) {
         NumberGenerator generator = new NumberGenerator();
 
@@ -31,5 +21,15 @@ public class NumberGenerator {
             int uniqueRandomNumber = generator.generateUniqueRandomNumber(6);
             System.out.println("Generated unique random number: " + uniqueRandomNumber);
         }
+    }
+
+    public int generateUniqueRandomNumber(int maxValue) {
+        int randomNumber;
+        do {
+            randomNumber = random.nextInt(maxValue) + 1;
+        } while (generatedNumbers.contains(randomNumber));
+
+        generatedNumbers.add(randomNumber);
+        return randomNumber;
     }
 }

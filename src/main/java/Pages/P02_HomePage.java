@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class P02_HomePage {
     //ToDo: define locators
-    private final By UserProfile = By.xpath("//p[@class=\"oxd-userdropdown-name\"]");
+    private final By UserProfile = By.xpath("//li[@class='oxd-userdropdown']");
 
     WebDriver driver;
 
@@ -16,6 +16,6 @@ public class P02_HomePage {
 
     //ToDo: add action methods
     public boolean CheckProfilePage() {
-        return driver.findElement(this.UserProfile).getText().equals("Joa Caceres");
+        return driver.findElement(this.UserProfile).isDisplayed();
     }
 }

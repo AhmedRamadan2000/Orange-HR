@@ -36,6 +36,7 @@ public class DriverFactory {
                 options.addArguments("--no-proxy-server");
                 options.addArguments("--remote-allow-origins=*");
                 options.addArguments("--no-sandbox");
+//                options.addArguments("--headless");
                 options.setExperimentalOption("prefs", prefs);
                 options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
 

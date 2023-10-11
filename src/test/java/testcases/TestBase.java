@@ -22,14 +22,13 @@ public class TestBase {
         driver = DriverFactory.getNewInstance(browser);
         setDriver(driver);
         driver.manage().window().maximize();
-
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
     }
 
     @AfterTest
     public void quite() {
         driver.quit();
+        Thread.currentThread().interrupt();
     }
 }

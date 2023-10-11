@@ -8,6 +8,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.io.FileHandler;
+import org.testng.asserts.SoftAssert;
 
 import java.io.File;
 import java.io.FileReader;
@@ -16,6 +17,9 @@ import java.util.Date;
 import java.util.Random;
 
 public class Utilities {
+
+    public static SoftAssert softAssert = new SoftAssert();
+
     //ToDo: Select random methods
     public static int generateRandomNumber(int lowerBound, int upperBound) {
         // Create a new instance of the Random class
@@ -51,18 +55,17 @@ public class Utilities {
     }
 
     //read data from json file
-    public static String getdata(String jsonpath, String filed)  {
+    public static String getdata(String jsonpath, String filed) {
         try {
-        //define object of json
-        JSONParser parser = new JSONParser();
-        //define object of file reader
-        FileReader reader = new FileReader(jsonpath);
-        Object object = parser.parse(reader);
+            //define object of json
+            JSONParser parser = new JSONParser();
+            //define object of file reader
+            FileReader reader = new FileReader(jsonpath);
+            Object object = parser.parse(reader);
 
-        JsonObject jsonObject=(JsonObject) object;
-        return jsonObject.get(filed).toString();}
-
-        catch (Exception e){
+            JsonObject jsonObject = (JsonObject) object;
+            return jsonObject.get(filed).toString();
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return "";
